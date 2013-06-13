@@ -9,7 +9,6 @@
 ## 资源
 
 * 官方网站 [MM](http://dev.10086.cn/iap/?action=down&areaid=1354082900)
-* 未开放下载地址
 
 ## 编译方法
 *  A复制 SDK的JAR到`build/makeJar` ，运行`combine.bat `合并jar
