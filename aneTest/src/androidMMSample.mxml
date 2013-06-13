@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   width="462" applicationComplete="handler_appComp(event)">
+	<fx:Style source="androidQH360Sample.css"/>
+	<fx:Script>
+		<![CDATA[
+			import com.mm.ane.MMExtension;
+			
+			import mx.events.FlexEvent;
+			import mx.utils.ObjectUtil;
+			
+			private var isLang:Boolean = false;
+			private function handler_status($evt:StatusEvent):void
+			{
+				showInfo('------------------');
+				showInfo('handler_status');
+				showInfo('level:', $evt.level, ',code:', $evt.code);
+				showInfo('------------------');
+			}
+			
+			protected function handler_appComp($evt:FlexEvent):void 
+			{
+				MMExtension.getInstance().addEventListener(StatusEvent.STATUS,handler_status);
+			}
+			
+			protected function handler_getStorageBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo('====================');
+				showInfo('====================');
+				showInfo('====================');
+			}
+			
+			
+			protected function handler_getSystemInfoBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				
+			}
+			
+			protected function handler_getPackageInfoBTNclick($evt:MouseEvent):void
+			{
+				showInfo('====================');
+				
+			}
+			
+			
+			private function showInfo(...$args):void
+			{
+				var __info:String = '';
+				for (var i:int = 0; i < $args.length; i++) 
+				{
+					__info += $args[i] + File.lineEnding;
+				}
+				infoTA.appendText(__info);
+			}
+			
+			
+			
+			private function clearInfo():void
+			{
+				infoTA.text = '';
+			}
+			
+			
+			protected function sdk_handle(event:MouseEvent):void
+			{
+				var b:Button = event.currentTarget as Button;
+				switch(b.id)
+				{
+					
+					case "init":
+						MMExtension.getInstance().MMInit("0000000000","0000000000","0000000000",1,"Paycode","ProductNUM",1);
+						break;
+					
+					case "bill":
+						MMExtension.getInstance().MMBilling(0);
+						break;
+					
+					
+					
+					case "query":
+						MMExtension.getInstance().MMQuery(0);
+						break;
+					
+					case "billnext":
+						MMExtension.getInstance().MMBillingNext(0);
+						break;
+					
+					case "clean":
+						MMExtension.getInstance().MMClean(0);
+						break;
+					
+					
+					case "exits":
+						MMExtension.getInstance().MMUnusb(0);
+						break;
+					
+				}
+			}
+			
+			
+			
+			private function exit():void
+			{
+				NativeApplication.nativeApplication.exit();   
+			}
+			
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:states>
+		<s:State name="fun1State"/>
+	</s:states>
+	<s:HGroup width="100%" horizontalAlign="center">
+		<s:Label id="qh360" width="406" height="89" color="#6A13ED" fontFamily="Arial" fontWeight="bold"
+				 text="MM ANE (by Rect(rectvv@gmail.com))" textAlign="center" verticalAlign="middle"/>
+	</s:HGroup>
+	
+	<s:TileGroup includeIn="fun1State" width="100%" height="467">
+		<s:Button id="init" y="12" width="225" height="27" label="初始化" click="sdk_handle(event)"
+				  fontFamily="_serif" fontSize="16" fontStyle="normal" fontWeight="bold"/>
+		<s:Button id="bill" y="12" width="225" height="27" label="订购" click="sdk_handle(event)"
+				  fontFamily="_serif" fontSize="16" fontStyle="normal" fontWeight="bold"/>
+		<s:Button id="query" label="查询" click="sdk_handle(event)"/>
+		
+		<s:Button id="billnext" label="续订" click="sdk_handle(event)"/>
+		<s:Button id="exits" label="退订" click="sdk_handle(event)"/>
+		
+		<s:Button id="clean" label="清除本地缓存" click="sdk_handle(event)"/>
+		
+		
+	</s:TileGroup>	
+	
+	<s:VGroup width="100%" height="436" horizontalAlign="right">
+		<s:TextArea id="infoTA" width="100%" height="420" color="#030715" textAlign="left"/>
+		<s:HGroup>
+		</s:HGroup>
+	</s:VGroup>
+</s:Application>
