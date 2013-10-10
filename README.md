@@ -14,6 +14,7 @@
 *  A复制 SDK的JAR到`build/makeJar` ，运行`combine.bat `合并jar
 *  B 复制A中得到的jar到`build/buildANE/Android-ARM`，运行`ane_packer.bat`得到ANE
 *  C 复制B中得到的ANE到 `bulidAPK` 并修改配置 运行`mm_apk.bat`可生成APK
+
 ## 处理APK方法
 (以下处理APK方式由网友提供)
 *  D 使用jar命令解压apk
@@ -22,7 +23,7 @@
 
 按照这三步做就OK。至于删除签名 其实只要在打包的时候重新签名就OK了。
 按照如下命令：
--------------------------------------------------------------------------------------------------------------
+
 set pa=%cd%
 echo %pa%
 cd %pa%
@@ -38,7 +39,7 @@ copy 你的路径\VERSION VERSION
 del 123.apk
 jar -cf 1234.apk .
 jarsigner -verbose -keystore 你的路径\你的签名文件.keystore -storepass ****-keypass 密码 -signedjar oyp-sign.apk 1234.apk android.keystore
---------------------------------------------------------------------------------------------------------------
+
 路径自行修改 命令中中文部分用你本机的代替
 
 
