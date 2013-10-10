@@ -1,10 +1,9 @@
 ﻿androidMM
 =========
 
-移动MM内支付ANE测试版
+移动MM内支付ANE
 * 此ANE可提供aser直接用，无需涉及java端。
 * 保留ANE所有源码
-* 应某同学的要求，编写了此ANE，由于我尚未拿到相应的KEY和完整的SDK文档，所以目前不知道是否有BUG。
 
 ## 资源
 
@@ -24,10 +23,9 @@
 按照这三步做就OK。至于删除签名 其实只要在打包的时候重新签名就OK了。
 ###按照如下命令：
 
-<br />set pa=%cd%
+<br />set path=%cd%
 <br />echo %pa%
 <br />cd %pa%
-<br />cd oyp
 <br />jar -xf 123.apk
 <br />del META-INF\CERT.RSA
 <br />del META-INF\CERT.SF
