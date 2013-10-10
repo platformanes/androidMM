@@ -24,10 +24,10 @@
 按照这三步做就OK。至于删除签名 其实只要在打包的时候重新签名就OK了。
 ###按照如下命令：
 
->set pa=%cd%
->echo %pa%
->cd %pa%
->cd oyp
+<br />set pa=%cd%
+<br />echo %pa%
+<br />cd %pa%
+<br />cd oyp
 >jar -xf 123.apk
 >del META-INF\CERT.RSA
 >del META-INF\CERT.SF
