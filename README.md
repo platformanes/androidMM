@@ -24,21 +24,21 @@
 按照这三步做就OK。至于删除签名 其实只要在打包的时候重新签名就OK了。
 按照如下命令：
 
-set pa=%cd%
-echo %pa%
-cd %pa%
-cd oyp
-jar -xf 123.apk
-del META-INF\CERT.RSA
-del META-INF\CERT.SF
-copy 你的路径\libcasdkjni.so lib\armeabi-v7a\libcasdkjni.so
-copy 你的路径\libidentifyapp.so lib\armeabi-v7a\libidentifyapp.so
-copy 你的路径\CopyrightDeclaration.xml CopyrightDeclaration.xml
-copy 你的路径\mmiap.xml mmiap.xml
-copy 你的路径\VERSION VERSION
-del 123.apk
-jar -cf 1234.apk .
-jarsigner -verbose -keystore 你的路径\你的签名文件.keystore -storepass ****-keypass 密码 -signedjar oyp-sign.apk 1234.apk android.keystore
+>set pa=%cd%
+>echo %pa%
+>cd %pa%
+>cd oyp
+>jar -xf 123.apk
+>del META-INF\CERT.RSA
+>del META-INF\CERT.SF
+>copy 你的路径\libcasdkjni.so lib\armeabi-v7a\libcasdkjni.so
+>copy 你的路径\libidentifyapp.so lib\armeabi-v7a\libidentifyapp.so
+>copy 你的路径\CopyrightDeclaration.xml CopyrightDeclaration.xml
+>copy 你的路径\mmiap.xml mmiap.xml
+>copy 你的路径\VERSION VERSION
+>del 123.apk
+>jar -cf 1234.apk .
+>jarsigner -verbose -keystore 你的路径\你的签名文件.keystore -storepass ****-keypass 密码 -signedjar oyp-sign.apk 1234.apk android.keystore
 
 路径自行修改 命令中中文部分用你本机的代替
 
